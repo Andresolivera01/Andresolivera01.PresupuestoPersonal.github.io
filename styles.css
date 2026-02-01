@@ -1,0 +1,222 @@
+/* ----------------------
+   Tema oscuro general
+   ---------------------- */
+
+body { font-family:"Segoe UI",sans-serif; background:#000; color:white; margin:0; padding:0; }
+
+/* Header fijo en la parte superior */
+header {
+  background:#111;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:10px 1cm;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* Evitar que el contenido se solape con el header */
+body {
+  font-family:"Segoe UI",sans-serif;
+  background:#000;
+  color:white;
+  margin:0;
+  padding-top: 90px;  /* Ajusta según la altura real del header */
+}
+
+/* Estilos del h1 en header */
+header h1 { font-size:2.2em; font-weight:bold; margin:0; flex:1; text-align:left; text-shadow:0 0 6px #50fa7b; }
+
+/* Contenedor de saldos en el header - aumentado tamaño */
+header .saldos { position:absolute; right:3cm; display:flex; gap:50px; top:5px; }
+header .saldoBox {
+  background:#111;
+  border:2px solid #50fa7b;
+  color:#50fa7b;
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:800;
+  font-size:0.8em; /* aumentado */
+  min-width:80px;
+  text-align:center;
+}
+
+/* Columna Superior: primera columna compacto Nuevo movimiento + 2 columnas de graficas */
+.grid-superior { display:grid; grid-template-columns:0.9fr 1.5fr 1.7fr; gap:70px; margin:10px 1.5cm; }
+
+/* Fila superior define estilos y colores:  */
+.col {
+  background: #2b2b2b;
+  padding: 12px;
+  border-radius: 20px;
+  box-shadow: 0 0 14px rgba(0,0,0,0.3);
+  border: 10px solid #1f1f1f;
+  display: flex;
+  flex-direction: column;
+}
+
+.col1-small { width:100%; height:auto; }
+
+/* Formularios y filas */
+.row { display:flex; flex-wrap:wrap; gap:18px; margin-bottom:8px; align-items:flex-start; }
+.row-column { flex-direction:column; }
+select,input,button { padding:7px; border-radius:6px; border:1px solid #333; background:#111; color:white; font-size:0.8em; }
+input[type=month], input[type=date] { padding:6px; }
+button { cursor:pointer; transition:0.18s; background:#222; color:white; border:1px solid #333; }
+button:hover { background:#2a2a2a; }
+
+/* Checklist */
+#checklistContainerTop input[type=text]{
+    font-size:0.7em;       /* Ajusta el tamaño del texto */
+    color:white;
+    background:#111;
+    border:1px solid #2b2b2b;
+    padding:4px 6px;       /* Ajusta padding si quieres más compacto */
+    border-radius:6px;
+    max-width:200px;       /* Limita ancho máximo del input */
+    flex:1;                /* Permite que se ajuste dentro del contenedor */
+}
+
+#checklistContainerTop {
+ max-height:200px; 
+overflow-y:auto; 
+margin-top:5px; 
+ padding-right: 4px; /* evita que el scroll quede demasiado a la derecha */
+
+}
+#checklistContainerTop > div {
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+#checklistContainerTop input[type=text] {
+    flex: 1;        /* ocupa todo el espacio disponible */
+    margin-right: 4px; /* un pequeño margen antes del botón */
+}
+
+/* Graficas */
+.col3canvas { width:100%; }
+.col3canvas#chartCategorias { max-height:450px; }
+.col3canvas#chartAnual, .col3canvas#chartAhorro { max-height:250px; }
+
+/* Fila Inferior: resumen + histórico */
+.grid-inferior { display:grid; grid-template-columns:0.5fr 1fr; gap:35px; margin:12px 1.5cm 100px 1.5cm; align-items:start; }
+
+/* Ajustes Resumen Anual */
+#resumenContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border-radius: 20px;
+  box-shadow:0 0 14px rgba(80,250,123,0.06);
+  border: 10px solid #1f1f1f;
+  height: 500px;
+}
+
+#resumenContainer table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:8px;
+  font-size:12px; /* fijo en px para consistencia Mac/Windows */
+}
+
+/* Historico de Movimientos */
+#movimientosContainer {
+  display: flex;
+  flex-direction: column;
+  padding:8px;
+  border-radius:20px;
+  box-shadow:0 0 14px rgba(80,250,123,0.06);
+  border: 10px solid #1f1f1f;
+  height: 510px;
+}
+
+#movimientosHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+#movimientosHeader h3 { margin: 0; }
+
+#movimientosHeader .row { margin-bottom: 0; }
+
+#movimientosBody {
+  overflow-y: auto;
+  flex: 1;
+  max-height: 600px;
+}
+
+th,td { border-bottom:1px solid #222; padding:8px; text-align:left; }
+th { background:#0b0b0b; position:sticky; top:0; z-index:5; }
+.income { color:#50fa7b; font-weight:700; }
+.expense { color:#ff6b6b; font-weight:700; }
+
+/* Footer fijo o pie de pagina*/
+.footer { position:fixed; bottom:0; width:100%; height:46px; background:#0b0b0b; color:white; display:flex; align-items:center; justify-content:center; font-weight:700; z-index:100; box-shadow:0 -2px 8px rgba(0,0,0,0.6); }
+
+/* Modal */
+#editModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.75); align-items:center; justify-content:center; z-index:200; }
+#editModal .modal-content { background:#0f0f0f; padding:5px; border-radius:10px; width:80%; max-width:200px; color:white; box-shadow:0 0 18px #50fa7b; }
+
+/* pequeños ajustes móviles */
+@media screen and (max-width:1200px){ .grid-superior { grid-template-columns:1fr 1fr 1fr; } .col3canvas#chartCategorias { max-height:400px; } #checklistContainerTop { max-height:200px; } }
+@media screen and (max-width:800px){ .grid-superior { grid-template-columns:1fr; } .grid-inferior { grid-template-columns:1fr; } .col3canvas#chartCategorias { max-height:300px; } #checklistContainerTop { max-height:150px; } }
+
+/* Ajuste de ancho columnas histórico de movimientos */
+#movimientosBody table {
+  table-layout: fixed;
+  width: 100%;
+  font-size:12px; /* fijo en px para consistencia */
+}
+
+#movimientosBody th,
+#movimientosBody td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Anchos específicos por columna */
+#movimientosBody th:nth-child(1),
+#movimientosBody td:nth-child(1) { width: 13%; } /* Fecha */
+
+#movimientosBody th:nth-child(2),
+#movimientosBody td:nth-child(2) { width: 10%; } /* Tipo */
+
+#movimientosBody th:nth-child(3),
+#movimientosBody td:nth-child(3) { width: 15%; } /* Categoría */
+
+#movimientosBody th:nth-child(4),
+#movimientosBody td:nth-child(4) { width: 12%; } /* Monto */
+
+#movimientosBody th:nth-child(5),
+#movimientosBody td:nth-child(5) { width: 12%; } /* SaLdo */
+
+#movimientosBody th:nth-child(6),
+#movimientosBody td:nth-child(6) { width: 20%; } /* Detalle */
+
+#movimientosBody th:nth-child(7),
+#movimientosBody td:nth-child(7) { width: 20%; } /* Acciones */
+
+/* Evita que retina reduzca tamaño general de tablas (sobrescribe) */
+html { -webkit-text-size-adjust: 100%; }
+
+/* pequeños estilos para nuevos controles */
+.smallBtn { padding:6px 8px; font-size:0.9em; border-radius:6px; margin-right:6px; }
+.switchLabel { display:flex; gap:8px; align-items:center; font-size:0.95em; }
+.toggleOn { background:#50fa7b; color:#000; padding:4px 8px; border-radius:6px; font-weight:700; }
+.toggleOff { background:#333; color:#fff; padding:4px 8px; border-radius:6px; }
+
+/* totales filtro */
+#filtroTotales { margin-top:1px; display:flex; gap:12px; align-items:center; font-weight:700; }
+#filtroTotales span { padding:6px 10px; border-radius:8px; background:#111; border:1px solid #222; }
